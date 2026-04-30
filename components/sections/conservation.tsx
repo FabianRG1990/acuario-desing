@@ -8,13 +8,14 @@ export function Conservation() {
   return (
     <section className="relative py-32 lg:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Cabecera — patrón unificado con Featured Exhibits */}
+        {/* Cabecera — patrón editorial limpio: título + CTA. La descripción se
+            elimina deliberadamente: el cierre al final ya carga el contexto del
+            38% y los programas, así el header respira sin explicarse. */}
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <SectionHeading
             eyebrow="Capítulo 04 · Conservación"
             title="Cuidar lo que se ama."
             italic="Estudiar lo que apenas conocemos."
-            description="El 38% de cada entrada financia investigación pública, programas de rehabilitación y restauración de hábitats críticos. Nuestro trabajo se publica abierto para que cualquier instituto pueda construir sobre él."
             tone="lagoon"
             className="max-w-2xl"
           />
@@ -99,8 +100,9 @@ export function Conservation() {
 
             <Reveal delay={0.2}>
               <p className="mt-12 border-t border-foam/10 pt-6 text-pretty text-foam/65 leading-relaxed">
-                Cuatro programas activos en el Caribe, el Pacífico y el Mar
-                Antártico. Datos abiertos bajo licencia{" "}
+                <span className="font-display text-foam/95">El 38%</span> de
+                cada entrada financia cuatro programas activos en el Caribe, el
+                Pacífico y el Mar Antártico. Datos abiertos bajo licencia{" "}
                 <span className="font-editorial italic text-foam/85">
                   CC-BY
                 </span>{" "}
