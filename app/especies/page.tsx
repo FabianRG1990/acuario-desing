@@ -186,10 +186,10 @@ export default function GaleriaPage() {
             {conservationStats.map((s, i) => (
               <Reveal key={s.label} delay={0.05 * i}>
                 <div>
-                  <p className="text-[10px] uppercase tracking-eyebrow text-foam/45">
+                  <p className="text-[12px] font-medium uppercase tracking-eyebrow text-foam/90">
                     {s.label}
                   </p>
-                  <p className="mt-3 font-display text-3xl tracking-tight md:text-5xl">
+                  <p className="mt-4 font-display text-3xl tracking-tight md:text-5xl">
                     {s.value}
                     <span className="block text-[18px] text-foam/55 font-sans tracking-normal mt-1">
                       {s.suffix.trim()}

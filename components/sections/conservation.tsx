@@ -81,10 +81,10 @@ export function Conservation() {
               <dl className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10">
                 {conservationStats.map((s) => (
                   <div key={s.label}>
-                    <dt className="text-[10px] uppercase tracking-eyebrow text-foam/55">
+                    <dt className="text-[12px] font-medium uppercase tracking-eyebrow text-foam/90">
                       {s.label}
                     </dt>
-                    <dd className="mt-3 font-display text-3xl leading-none tracking-tight text-foam md:text-[42px]">
+                    <dd className="mt-4 font-display text-3xl leading-none tracking-tight text-foam md:text-[42px]">
                       {s.value}
                     </dd>
                     {s.suffix && (
