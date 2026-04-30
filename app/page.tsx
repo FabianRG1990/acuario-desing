@@ -4,6 +4,7 @@ import { SpeciesMarquee } from "@/components/sections/species-marquee";
 import { Conservation } from "@/components/sections/conservation";
 import { Visit } from "@/components/sections/visit";
 import { Membership } from "@/components/sections/membership";
+import { Timeline } from "@/components/sections/timeline";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Membership />
       <Conservation />
       <Visit />
+      <Timeline />
     </>
   );
 }
