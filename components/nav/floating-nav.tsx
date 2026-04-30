@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { List, X } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/cn";
 import { EmblemMark } from "@/components/ui/brand-mark";
+import { GlassPillCanvas } from "@/components/nav/glass-pill-canvas";
 
 const links = [
   { href: "/", label: "Inicio" },
@@ -82,16 +83,20 @@ export function FloatingNav() {
           </span>
         </Link>
 
-        {/* RIGHT — nav pill desktop + burger mobile */}
+        {/* RIGHT — nav pill desktop con canvas 3D (cristal real) + burger mobile */}
         <motion.div
           ref={navRef}
           animate={{ scale: scrolled ? 0.97 : 1 }}
           transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
           className={cn(
-            "hidden items-center gap-0.5 rounded-full p-2 glass-nav lg:flex",
-            scrolled && "glass-nav-scrolled",
+            "relative hidden items-center gap-0.5 rounded-full p-2 glass-nav-shell lg:flex",
+            scrolled && "glass-nav-shell-scrolled",
           )}
         >
+          {/* Pill 3D fotorreal — Three.js + MeshPhysicalMaterial.
+              Vive detrás de los links con z-index implícito por orden DOM. */}
+          <GlassPillCanvas />
+
           {links.map((l) => {
             const active =
               l.href === "/" ? pathname === "/" : pathname.startsWith(l.href);
@@ -100,7 +105,7 @@ export function FloatingNav() {
                 key={l.href}
                 href={l.href}
                 className={cn(
-                  "relative rounded-full px-4 py-2 text-[14px] font-medium transition-colors duration-500 ease-fluid",
+                  "relative z-10 rounded-full px-4 py-2 text-[14px] font-medium transition-colors duration-500 ease-fluid",
                   active ? "text-foam" : "text-foam/70 hover:text-foam",
                 )}
               >

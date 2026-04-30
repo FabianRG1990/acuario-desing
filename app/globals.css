@@ -235,69 +235,107 @@
       0 4px 10px -3px rgba(6, 24, 38, 0.35);
   }
 
-  /* Glass nav — burbuja de agua cristalina.
-     Referencia: foto de macro-burbujas en agua azul. Sin iridiscencia,
-     sin shimmer animado. Solo física limpia de luz sobre vidrio:
-     1. Cuerpo casi 100% transparente, apenas un velo
-     2. Catchlight superior nítido y definido (reflejo del sol)
-     3. Pequeño hot-spot al top-left (el reflejo principal puntual)
-     4. Cáustica cyan inferior (luz refractada por la curvatura)
-     5. Rim line blanco fino (tensión superficial)
-     6. ::before — cursor spotlight (interactivo, vivo)
-     7. ::after — catchlight especular permanente top-left, definido
+  /* Glass nav SHELL — wrapper que envuelve al GlassPillCanvas.
+     El canvas Three.js dibuja el cristal real. Esta capa CSS aporta:
+     - Drop shadow atmosférico (canvas no puede sombrear la página)
+     - Backdrop blur sutil (se ve por las orillas donde el cristal es
+       transmisivo, da presencia sin teñir)
+     - Halo iluminación sutil (1px outline + outer glow apenas visible) */
+  .glass-nav-shell {
+    position: relative;
+    isolation: isolate;
+    -webkit-backdrop-filter: blur(8px) saturate(115%);
+            backdrop-filter: blur(8px) saturate(115%);
+    box-shadow:
+      /* Drop atmosférico — 4 capas para ambient occlusion */
+      0 56px 112px -24px rgba(0, 0, 0, 0.68),
+      0 28px 56px -12px rgba(0, 0, 0, 0.55),
+      0 12px 24px -6px rgba(0, 0, 0, 0.42),
+      0 4px 8px -2px rgba(0, 0, 0, 0.30),
+      /* Halo subtle — outline finísimo + outer glow apenas perceptible */
+      0 0 0 1px rgba(255, 255, 255, 0.08),
+      0 0 14px 1px rgba(255, 255, 255, 0.04);
+    transition: box-shadow 600ms cubic-bezier(0.32, 0.72, 0, 1);
+  }
+  .glass-nav-shell-scrolled {
+    -webkit-backdrop-filter: blur(10px) saturate(125%);
+            backdrop-filter: blur(10px) saturate(125%);
+    box-shadow:
+      0 64px 128px -22px rgba(0, 0, 0, 0.80),
+      0 32px 60px -10px rgba(0, 0, 0, 0.62),
+      0 14px 26px -6px rgba(0, 0, 0, 0.46),
+      0 5px 10px -2px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(255, 255, 255, 0.14),
+      0 0 18px 2px rgba(255, 255, 255, 0.06);
+  }
+
+  /* Glass nav — cristal puro 3D flotando.
+     Sin colores. Solo blanco, negro y transparencia. La sensación de
+     volumen viene del modelado de luz, no de tints colorados.
+     Modelo físico de un objeto convexo iluminado desde arriba:
+     1. Drop shadow multicapa = el objeto FLOTA encima de la pantalla
+     2. Top highlight = la cara superior recibe luz directa
+     3. Bottom inner shadow = la cara inferior está en sombra propia
+     4. Side rim highlights = la curvatura redondeada captura luz lateral
+     5. Backdrop refraction = lo que está detrás se distorsiona realmente
+     6. Micro-texture SVG = imperfecciones microscópicas, no digital fake
+     7. Cursor spotlight blanco = la luz "sigue tu dedo" si lo tocaras
      ----------------------------------------------------------------- */
+  @property --m-opacity {
+    syntax: "<number>";
+    initial-value: 0;
+    inherits: true;
+  }
   .glass-nav {
     position: relative;
     isolation: isolate;
     --mx: 50%;
     --my: 50%;
     --m-opacity: 0;
-    background:
-      /* Crescent superior — el arco curvo brillante característico */
-      radial-gradient(
-        ellipse 80% 130% at 50% -70%,
-        rgba(255, 255, 255, 0.28) 0%,
-        rgba(255, 255, 255, 0.08) 28%,
-        transparent 55%
-      ),
-      /* Cáustica inferior cyan — luz refractada por la curva inferior */
-      radial-gradient(
-        ellipse 60% 80% at 50% 145%,
-        rgba(127, 227, 214, 0.20) 0%,
-        rgba(127, 227, 214, 0.05) 38%,
-        transparent 65%
-      ),
-      /* Cuerpo casi transparente — solo un velo mínimo */
-      linear-gradient(
-        180deg,
-        rgba(245, 241, 232, 0.030) 0%,
-        rgba(245, 241, 232, 0.008) 50%,
-        rgba(245, 241, 232, 0.020) 100%
-      );
-    -webkit-backdrop-filter: blur(20px) saturate(175%);
-            backdrop-filter: blur(20px) saturate(175%);
-    box-shadow:
-      /* Drop atmosférico — la burbuja flota, no está pegada */
-      0 30px 60px -14px rgba(6, 24, 38, 0.55),
-      0 8px 22px -6px rgba(6, 24, 38, 0.32),
-      /* Outer ring fino — tensión superficial */
-      0 0 0 1px rgba(245, 241, 232, 0.11),
-      /* TOP edge specular nítido — el filo brillante */
-      inset 0 1.5px 0 rgba(255, 255, 255, 0.70),
-      /* TOP halo interno — el resplandor bajo el filo */
-      inset 0 6px 14px -6px rgba(255, 255, 255, 0.28),
-      /* BOTTOM rim cyan — cáustica refractada de vuelta */
-      inset 0 -1.5px 0 rgba(127, 227, 214, 0.30),
-      /* BOTTOM inner depth — la parte trasera de la burbuja */
-      inset 0 -6px 14px -5px rgba(6, 24, 38, 0.25),
-      /* SIDES rim highlights — curvatura esférica */
-      inset 2px 0 3px -2px rgba(255, 255, 255, 0.18),
-      inset -2px 0 3px -2px rgba(255, 255, 255, 0.18);
     transition:
       background 600ms cubic-bezier(0.32, 0.72, 0, 1),
-      box-shadow 600ms cubic-bezier(0.32, 0.72, 0, 1);
+      box-shadow 600ms cubic-bezier(0.32, 0.72, 0, 1),
+      --m-opacity 500ms cubic-bezier(0.32, 0.72, 0, 1);
+    /* Cuerpo del cristal — casi transparente, con scatter mínimo arriba */
+    background:
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.005) 50%,
+        rgba(255, 255, 255, 0.020) 100%
+      );
+    /* Refracción REAL del fondo — blur fuerte + saturate boosted +
+       brightness para que el backdrop se sienta visiblemente lensed */
+    -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.10) contrast(1.05);
+            backdrop-filter: blur(28px) saturate(200%) brightness(1.10) contrast(1.05);
+    box-shadow:
+      /* DROP atmosférico — 4 capas para ambient occlusion realista */
+      0 56px 112px -24px rgba(0, 0, 0, 0.68),
+      0 28px 56px -12px rgba(0, 0, 0, 0.55),
+      0 12px 24px -6px rgba(0, 0, 0, 0.42),
+      0 4px 8px -2px rgba(0, 0, 0, 0.30),
+      /* RIM EXTERIOR BRIGHT — la firma del reference image:
+         anillo blanco luminoso continuo alrededor del perímetro */
+      0 0 0 1px rgba(255, 255, 255, 0.32),
+      /* Glow exterior difuso — apenas un halo */
+      0 0 8px 1px rgba(255, 255, 255, 0.06),
+      /* RIM INTERIOR — segundo anillo brillante por dentro */
+      inset 0 0 0 1px rgba(255, 255, 255, 0.20),
+      /* TOP edge specular afilado — pico de luz blanca pura */
+      inset 0 2.5px 0 rgba(255, 255, 255, 1),
+      /* TOP halo difuso — el resplandor que sigue al filo */
+      inset 0 6px 14px -4px rgba(255, 255, 255, 0.45),
+      /* BOTTOM rim — el filo inferior captura luz reflejada */
+      inset 0 -2.5px 0 rgba(255, 255, 255, 0.50),
+      /* BOTTOM halo difuso — el glow que sigue al filo inferior */
+      inset 0 -6px 14px -4px rgba(255, 255, 255, 0.20),
+      /* BOTTOM inner shadow PROFUNDA — la cara cóncava inferior, da el 3D */
+      inset 0 -18px 32px -12px rgba(0, 0, 0, 0.55),
+      /* SIDES rim highlights — curvatura esférica lateral */
+      inset 3px 0 6px -3px rgba(255, 255, 255, 0.22),
+      inset -3px 0 6px -3px rgba(255, 255, 255, 0.22);
   }
-  /* Cursor spotlight bioluminiscente — sigue al mouse, mix-blend screen */
+  /* Micro-textura SVG — imperfecciones microscópicas del cristal real */
   .glass-nav::before {
     content: "";
     position: absolute;
@@ -305,19 +343,16 @@
     border-radius: inherit;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(
-      circle 150px at var(--mx) var(--my),
-      rgba(127, 227, 214, 0.26) 0%,
-      rgba(127, 227, 214, 0.08) 35%,
-      transparent 70%
-    );
-    opacity: var(--m-opacity);
-    mix-blend-mode: screen;
-    transition: opacity 500ms cubic-bezier(0.32, 0.72, 0, 1);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.5 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+    opacity: 0.04;
+    mix-blend-mode: overlay;
   }
-  /* Catchlight especular permanente — el hot-spot principal de la burbuja
-     en la parte superior izquierda. Forma de óvalo afilado, blanco puro,
-     mix-blend screen. Es el reflejo del sol sobre la superficie curva. */
+  /* Stack de specular highlights tridimensional:
+     1. Crescent superior CURVO (radial)
+     2. Catchlight puntual top-left (la firma de cristal real)
+     3. Catchlight puntual top-right (luz ambiental secundaria)
+     4. Crescent inferior reflejado (sutil)
+     5. Cursor spotlight (sigue al mouse) */
   .glass-nav::after {
     content: "";
     position: absolute;
@@ -325,45 +360,69 @@
     border-radius: inherit;
     pointer-events: none;
     z-index: -1;
-    background: radial-gradient(
-      ellipse 14% 55% at 22% 18%,
-      rgba(255, 255, 255, 0.55) 0%,
-      rgba(255, 255, 255, 0.15) 45%,
-      transparent 75%
-    );
+    background:
+      /* Catchlight afilado top-left — el reflejo principal puntual */
+      radial-gradient(
+        ellipse 12% 40% at 18% 12%,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(255, 255, 255, 0.30) 35%,
+        transparent 70%
+      ),
+      /* Catchlight secundario top-right — luz ambiental */
+      radial-gradient(
+        ellipse 10% 35% at 82% 16%,
+        rgba(255, 255, 255, 0.50) 0%,
+        rgba(255, 255, 255, 0.15) 45%,
+        transparent 75%
+      ),
+      /* Crescent superior amplio — arco luminoso convexo */
+      radial-gradient(
+        ellipse 80% 130% at 50% -30%,
+        rgba(255, 255, 255, 0.28) 0%,
+        rgba(255, 255, 255, 0.08) 35%,
+        transparent 60%
+      ),
+      /* Crescent inferior — reflejo de la luz desde abajo */
+      radial-gradient(
+        ellipse 70% 90% at 50% 130%,
+        rgba(255, 255, 255, 0.14) 0%,
+        rgba(255, 255, 255, 0.03) 50%,
+        transparent 75%
+      ),
+      /* Cursor spotlight blanco puro siguiendo al mouse */
+      radial-gradient(
+        circle 240px at var(--mx) var(--my),
+        rgba(255, 255, 255, calc(0.22 * var(--m-opacity))) 0%,
+        rgba(255, 255, 255, calc(0.06 * var(--m-opacity))) 40%,
+        transparent 75%
+      );
     mix-blend-mode: screen;
-    opacity: 0.95;
   }
   .glass-nav-scrolled {
     background:
-      radial-gradient(
-        ellipse 80% 130% at 50% -65%,
-        rgba(255, 255, 255, 0.36) 0%,
-        rgba(255, 255, 255, 0.12) 30%,
-        transparent 56%
-      ),
-      radial-gradient(
-        ellipse 60% 80% at 50% 145%,
-        rgba(127, 227, 214, 0.24) 0%,
-        rgba(127, 227, 214, 0.06) 38%,
-        transparent 65%
-      ),
       linear-gradient(
         180deg,
-        rgba(245, 241, 232, 0.060) 0%,
-        rgba(245, 241, 232, 0.022) 50%,
-        rgba(245, 241, 232, 0.045) 100%
+        rgba(255, 255, 255, 0.085) 0%,
+        rgba(255, 255, 255, 0.012) 50%,
+        rgba(255, 255, 255, 0.035) 100%
       );
+    -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(1.13) contrast(1.06);
+            backdrop-filter: blur(32px) saturate(220%) brightness(1.13) contrast(1.06);
     box-shadow:
-      0 34px 68px -14px rgba(6, 24, 38, 0.72),
-      0 12px 26px -6px rgba(6, 24, 38, 0.42),
-      0 0 0 1px rgba(245, 241, 232, 0.16),
-      inset 0 1.5px 0 rgba(255, 255, 255, 0.85),
-      inset 0 8px 18px -7px rgba(255, 255, 255, 0.36),
-      inset 0 -1.5px 0 rgba(127, 227, 214, 0.36),
-      inset 0 -8px 18px -6px rgba(6, 24, 38, 0.30),
-      inset 2px 0 3px -2px rgba(255, 255, 255, 0.22),
-      inset -2px 0 3px -2px rgba(255, 255, 255, 0.22);
+      0 64px 128px -22px rgba(0, 0, 0, 0.80),
+      0 32px 60px -10px rgba(0, 0, 0, 0.62),
+      0 14px 26px -6px rgba(0, 0, 0, 0.46),
+      0 5px 10px -2px rgba(0, 0, 0, 0.34),
+      0 0 0 1px rgba(255, 255, 255, 0.42),
+      0 0 12px 2px rgba(255, 255, 255, 0.10),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.28),
+      inset 0 2.5px 0 rgba(255, 255, 255, 1),
+      inset 0 7px 16px -4px rgba(255, 255, 255, 0.55),
+      inset 0 -2.5px 0 rgba(255, 255, 255, 0.62),
+      inset 0 -7px 16px -4px rgba(255, 255, 255, 0.26),
+      inset 0 -20px 36px -12px rgba(0, 0, 0, 0.60),
+      inset 3px 0 6px -3px rgba(255, 255, 255, 0.28),
+      inset -3px 0 6px -3px rgba(255, 255, 255, 0.28);
   }
 
   /* Light glass — for over foam/cream backgrounds (e.g. Conservation home). */
