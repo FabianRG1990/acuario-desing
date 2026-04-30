@@ -197,3 +197,60 @@ export const conservationStats = [
   { label: "Investigación abierta", value: "94", suffix: " papers" },
 ];
 
+export const visitInfo = {
+  hours: [
+    { day: "Lunes — Jueves", hours: "10:00 — 19:30" },
+    { day: "Viernes", hours: "10:00 — 22:00 · Noche bioluminiscente" },
+    { day: "Sábado — Domingo", hours: "09:00 — 21:00" },
+  ],
+  address: "Paseo Marítimo 1492, San José",
+  ticketingNote:
+    "La capacidad es limitada. Las entradas se liberan en olas cada 30 minutos para mantener la inmersión.",
+};
+
+export const tickets = [
+  {
+    name: "General",
+    price: "$28",
+    cadence: "por persona",
+    description:
+      "Acceso a todas las galerías permanentes y al Túnel Azul. Audioguía incluida.",
+    perks: [
+      "Acceso a 6 galerías",
+      "Túnel Azul de 60 m",
+      "Audioguía multi-idioma",
+      "Reentrada el mismo día",
+    ],
+    accent: "foam",
+  },
+  {
+    name: "Inmersión",
+    price: "$74",
+    cadence: "por persona",
+    description:
+      "Recorrido guiado por curador, acceso anticipado y observación tras-bambalinas del laboratorio de coral.",
+    perks: [
+      "Acceso anticipado · 09:00",
+      "Tour curador (90 min)",
+      "Laboratorio coralino",
+      "Catálogo editorial firmado",
+    ],
+    accent: "lagoon",
+    highlight: true,
+  },
+  {
+    name: "Patronato",
+    price: "$1.840",
+    cadence: "anual",
+    description:
+      "Membresía fundadora. Acceso ilimitado, expediciones anuales y créditos en el programa de conservación.",
+    perks: [
+      "Entrada ilimitada x2",
+      "Cena anual con curaduría",
+      "Crédito 1 ha en reserva marina",
+      "Eventos privados",
+    ],
+    accent: "coral",
+  },
+];
+
