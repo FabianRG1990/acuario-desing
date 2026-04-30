@@ -13,7 +13,6 @@ const links = [
   { href: "/", label: "Inicio" },
   { href: "/exhibiciones", label: "Exhibiciones" },
   { href: "/especies", label: "Galería" },
-  { href: "/conservacion", label: "Conservación" },
   { href: "/contacto", label: "Contáctenos" },
 ];
 

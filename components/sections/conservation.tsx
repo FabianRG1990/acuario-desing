@@ -19,7 +19,7 @@ export function Conservation() {
             className="max-w-2xl"
           />
           <Reveal delay={0.2}>
-            <PillButton href="/conservacion">Conoce el instituto</PillButton>
+            <PillButton href="/especies">Conoce el instituto</PillButton>
           </Reveal>
         </div>
 

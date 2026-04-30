@@ -4,8 +4,8 @@ import { BrandLockup } from "@/components/ui/brand-mark";
 const navLinks = [
   { label: "Exhibiciones", href: "/exhibiciones" },
   { label: "Galería", href: "/especies" },
-  { label: "Conservación", href: "/conservacion" },
-  { label: "Investigación", href: "/conservacion" },
+  { label: "Conservación", href: "/especies" },
+  { label: "Investigación", href: "/especies" },
   { label: "Noche bioluminiscente", href: "/exhibiciones" },
 ];
 
