@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { PageHeader } from "@/components/ui/page-header";
 import { DepthTransition } from "@/components/sections/depth-transition";
-import { Timeline } from "@/components/sections/timeline";
 import { Reveal } from "@/components/ui/reveal";
 import { conservationStats } from "@/lib/data";
 
@@ -116,7 +115,6 @@ export default function ConservacionPage() {
         </div>
       </section>
 
-      <Timeline className="py-20 lg:py-28" />
     </>
   );
 }
