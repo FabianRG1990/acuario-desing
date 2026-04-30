@@ -11,9 +11,9 @@ export default function HomePage() {
       <Hero />
       <FeaturedExhibits />
       <SpeciesMarquee />
+      <Membership />
       <Conservation />
       <Visit />
-      <Membership />
     </>
   );
 }

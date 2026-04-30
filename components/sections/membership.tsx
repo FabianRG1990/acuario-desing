@@ -11,7 +11,7 @@ export function Membership() {
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <div>
             <Reveal>
-              <Eyebrow tone="lagoon">Capítulo 05 · Patronato</Eyebrow>
+              <Eyebrow tone="lagoon">Capítulo 03 · Patronato</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 max-w-2xl text-balance font-display text-4xl font-medium leading-[1.0] tracking-tight md:text-6xl">
