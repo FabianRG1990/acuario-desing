@@ -13,7 +13,7 @@ export function SpeciesMarquee() {
         <div className="grid gap-12 lg:grid-cols-[0.6fr,1fr] lg:items-end">
           <div>
             <Reveal>
-              <Eyebrow tone="kelp">Capítulo 03 · Habitantes</Eyebrow>
+              <Eyebrow tone="kelp">Capítulo 02 · Habitantes</Eyebrow>
             </Reveal>
             <Reveal delay={0.05}>
               <p className="mt-6 text-[11px] uppercase tracking-eyebrow text-foam/45">

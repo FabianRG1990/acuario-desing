@@ -19,7 +19,7 @@ export function FeaturedExhibits() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow="Capítulo 02 · Exhibiciones"
+            eyebrow="Capítulo 01 · Exhibiciones"
             title="Seis biomas."
             italic="Una sola caída."
             description="De la superficie tropical al frío antártico, cada galería ha sido construida con curaduría científica y sensibilidad escénica. Recorrelas en cualquier orden — o déjate llevar por la corriente sugerida."

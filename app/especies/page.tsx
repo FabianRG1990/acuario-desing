@@ -18,7 +18,7 @@ export default function EspeciesPage() {
     <>
       <PageHeader
         eyebrow="Directorio · 1.247 especies"
-        capitulo="Capítulo 03 / 06 · Especies"
+        capitulo="Capítulo 02 / 05 · Especies"
         title="Cada habitante,"
         italic="un protocolo propio."
         description="Llevamos un registro vivo de cada criatura: hábitat, dieta, profundidad y estado de conservación. Este es un extracto público del catálogo curatorial."

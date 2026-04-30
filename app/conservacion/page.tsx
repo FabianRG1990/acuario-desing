@@ -49,7 +49,7 @@ export default function ConservacionPage() {
     <>
       <PageHeader
         eyebrow="Instituto · Misión pública"
-        capitulo="Capítulo 05 / 06 · Conservación"
+        capitulo="Capítulo 03 / 05 · Conservación"
         title="Cuidar lo que se ama."
         italic="Estudiar lo que apenas conocemos."
         description="Acuario no es un parque temático: es un instituto activo de investigación marina. El 38% de cada entrada financia programas que mantenemos abiertos al mundo."

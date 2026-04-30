@@ -101,7 +101,7 @@ export function Hero() {
             <div className="hidden items-center justify-between text-foam/55 lg:flex">
               <ScrollHint />
               <div className="text-[10px] uppercase tracking-eyebrow">
-                01 / 06
+                01 / 05
               </div>
             </div>
           </div>

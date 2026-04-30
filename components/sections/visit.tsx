@@ -11,7 +11,7 @@ export function Visit() {
         <div className="grid gap-16 lg:grid-cols-[1fr,1.1fr] lg:items-start">
           <div className="lg:sticky lg:top-32">
             <Reveal>
-              <Eyebrow>Capítulo 05 · Visita</Eyebrow>
+              <Eyebrow>Capítulo 04 · Visita</Eyebrow>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 text-balance font-display text-4xl font-medium leading-[1.0] tracking-tight md:text-6xl">

@@ -10,7 +10,7 @@ export default function ExhibicionesPage() {
     <>
       <PageHeader
         eyebrow="Recorrido · 6 biomas"
-        capitulo="Capítulo 02 / 06 · Exhibiciones"
+        capitulo="Capítulo 01 / 05 · Exhibiciones"
         title="Galerías"
         italic="vivas."
         description="Cada bioma es un ecosistema completo, no una vitrina. Construidos con curaduría científica, presiones reales y luz natural, las exhibiciones se comportan como el océano que representan."

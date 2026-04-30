@@ -11,7 +11,7 @@ export function Conservation() {
         {/* Cabecera — patrón unificado con Featured Exhibits */}
         <div className="flex flex-col items-start justify-between gap-10 lg:flex-row lg:items-end">
           <SectionHeading
-            eyebrow="Capítulo 04 · Conservación"
+            eyebrow="Capítulo 03 · Conservación"
             title="Cuidar lo que se ama."
             italic="Estudiar lo que apenas conocemos."
             description="El 38% de cada entrada financia investigación pública, programas de rehabilitación y restauración de hábitats críticos. Nuestro trabajo se publica abierto para que cualquier instituto pueda construir sobre él."
