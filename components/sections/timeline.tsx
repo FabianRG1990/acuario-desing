@@ -43,7 +43,7 @@ export function Timeline({
             <Reveal key={m.year} delay={0.04 * i}>
               <li className="border-t border-foam/10 pt-6">
                 <div className="flex items-center gap-3">
-                  <p className="font-display text-4xl leading-none tracking-tight text-foam md:text-5xl">
+                  <p className="font-mono text-4xl leading-none tracking-tight text-foam md:text-5xl tabular-nums">
                     {m.year}
                   </p>
                   <span className="text-[10px] uppercase tracking-eyebrow text-foam/35">

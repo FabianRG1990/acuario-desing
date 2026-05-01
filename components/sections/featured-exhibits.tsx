@@ -29,7 +29,7 @@ export function FeaturedExhibits() {
           <Reveal delay={0.2}>
             <Link
               href="/exhibiciones"
-              className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
+              className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 font-button text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
             >
               <span className="py-1">Ver las 6 galerías</span>
               <span className="flex size-9 items-center justify-center rounded-full glass-bubble-icon transition-transform duration-700 ease-fluid group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">

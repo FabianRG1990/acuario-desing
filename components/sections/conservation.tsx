@@ -85,7 +85,7 @@ export function Conservation() {
                     <dt className="text-[12px] font-medium uppercase tracking-eyebrow text-foam/90">
                       {s.label}
                     </dt>
-                    <dd className="mt-4 font-display text-3xl leading-none tracking-tight text-foam md:text-[42px]">
+                    <dd className="mt-4 font-mono text-3xl leading-none tracking-tight text-foam md:text-[42px] tabular-nums">
                       {s.value}
                     </dd>
                     {s.suffix && (
@@ -100,7 +100,7 @@ export function Conservation() {
 
             <Reveal delay={0.2}>
               <p className="mt-12 border-t border-foam/10 pt-6 text-pretty text-foam/65 leading-relaxed">
-                <span className="font-display text-foam/95">El 38%</span> de
+                <span className="font-mono text-foam/95 tabular-nums">El 38%</span> de
                 cada entrada financia cuatro programas activos en el Caribe, el
                 Pacífico y el Mar Antártico. Datos abiertos bajo licencia{" "}
                 <span className="font-editorial italic text-foam/85">

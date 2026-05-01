@@ -28,8 +28,12 @@ const config: Config = {
         urchin: "#3A2A4D",
       },
       fontFamily: {
-        display: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui"],
-        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui"],
+        // Principal: Times New Roman en TODO el contenido textual + botones + navbar.
+        display: ["'Times New Roman'", "Times", "serif"],
+        sans: ["'Times New Roman'", "Times", "serif"],
+        mono: ["'Times New Roman'", "Times", "serif"],
+        button: ["'Times New Roman'", "Times", "serif"],
+        // Secundaria de títulos: Fraunces italic light (palabras más opacas).
         editorial: ["var(--font-fraunces)", "Georgia", "serif"],
       },
       letterSpacing: {

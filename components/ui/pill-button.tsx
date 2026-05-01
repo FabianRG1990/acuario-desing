@@ -26,7 +26,7 @@ export function PillButton({
       whileTap={{ scale: 0.97 }}
       transition={{ type: "spring", stiffness: 400, damping: 28 }}
       className={cn(
-        "group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-[14px] font-semibold tracking-[-0.01em] glass-bubble",
+        "group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 font-button text-[14px] font-semibold tracking-[-0.01em] glass-bubble",
         className,
       )}
     >

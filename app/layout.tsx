@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 import { FloatingNav } from "@/components/nav/floating-nav";
 import { Footer } from "@/components/footer";
@@ -33,7 +34,7 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${fraunces.variable} ${GeistSans.variable}`}
+      className={`${fraunces.variable} ${GeistSans.variable} ${GeistMono.variable}`}
     >
       <body className="min-h-[100dvh] bg-abyss text-foam grain antialiased">
         <OceanBackground />

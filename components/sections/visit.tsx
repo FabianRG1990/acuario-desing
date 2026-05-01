@@ -30,7 +30,7 @@ export function Visit() {
               <div className="mt-10 flex flex-wrap gap-4">
                 <Link
                   href="/entradas"
-                  className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
+                  className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 font-button text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
                 >
                   <span className="py-1.5">Comprar entradas</span>
                   <span className="flex size-9 items-center justify-center rounded-full glass-bubble-icon transition-transform duration-700 ease-fluid group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
@@ -39,7 +39,7 @@ export function Visit() {
                 </Link>
                 <Link
                   href="/visita"
-                  className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
+                  className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 font-button text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
                 >
                   <span className="py-1.5">Cómo llegar</span>
                   <span className="flex size-9 items-center justify-center rounded-full glass-bubble-icon transition-transform duration-700 ease-fluid group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
@@ -110,7 +110,7 @@ export function Visit() {
                 helper="Capacidad limitada"
               >
                 <div className="mt-3 flex items-baseline gap-3">
-                  <span className="font-display text-4xl tracking-tight">
+                  <span className="font-mono text-4xl tracking-tight tabular-nums">
                     $28
                   </span>
                   <span className="text-[11px] uppercase tracking-eyebrow text-foam/55">

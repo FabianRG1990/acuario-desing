@@ -117,7 +117,7 @@ export default function ContactoPage() {
                       <p className="mt-8 text-[10px] uppercase tracking-eyebrow text-foam/45">
                         {c.label}
                       </p>
-                      <p className="mt-3 font-display text-2xl leading-tight tracking-tight text-foam md:text-3xl">
+                      <p className="mt-3 font-mono text-2xl leading-tight tracking-tight text-foam md:text-3xl tabular-nums">
                         {c.value}
                       </p>
                       <p className="mt-auto pt-6 text-sm text-foam/60">
@@ -180,7 +180,7 @@ export default function ContactoPage() {
                       </p>
                       <button
                         type="submit"
-                        className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
+                        className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 font-button text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
                       >
                         <span className="py-1.5">Enviar mensaje</span>
                         <span className="flex size-9 items-center justify-center rounded-full glass-bubble-icon transition-transform duration-700 ease-fluid group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
@@ -230,7 +230,7 @@ export default function ContactoPage() {
                     <p className="text-[10px] uppercase tracking-eyebrow text-bioluminescent">
                       Tiempo de respuesta
                     </p>
-                    <p className="mt-4 font-display text-5xl leading-none tracking-tight text-foam">
+                    <p className="mt-4 font-mono text-5xl leading-none tracking-tight text-foam tabular-nums">
                       14<span className="text-foam/45 text-3xl ml-1">min</span>
                     </p>
                     <p className="mt-3 text-foam/65 leading-relaxed text-sm">

@@ -59,7 +59,7 @@ export function Membership() {
                     )}
                   </div>
                   <div className="mt-6 flex items-baseline gap-2">
-                    <span className={`font-display tracking-tight ${t.highlight ? "text-6xl text-lagoon" : "text-5xl text-foam"}`}>
+                    <span className={`font-mono tracking-tight tabular-nums ${t.highlight ? "text-6xl text-lagoon" : "text-5xl text-foam"}`}>
                       {t.price}
                     </span>
                     <span className="text-[11px] uppercase tracking-eyebrow text-foam/55">
@@ -91,7 +91,7 @@ export function Membership() {
                   <div className="mt-auto pt-8">
                     <Link
                       href="/entradas"
-                      className={`group inline-flex w-full items-center justify-between rounded-full pl-5 pr-1.5 py-1.5 text-[13px] font-semibold tracking-[-0.01em] ${
+                      className={`group inline-flex w-full items-center justify-between rounded-full pl-5 pr-1.5 py-1.5 font-button text-[13px] font-semibold tracking-[-0.01em] ${
                         t.highlight
                           ? "bg-lagoon text-abyss shadow-[0_8px_30px_-8px_rgba(86,170,184,0.6)] hover:shadow-[0_8px_40px_-6px_rgba(86,170,184,0.8)] transition-shadow duration-500"
                           : "glass-bubble"

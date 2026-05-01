@@ -59,7 +59,7 @@ export default function ExhibicionesPage() {
                       />
                     </dl>
                     <div className="mt-10">
-                      <button className="group inline-flex items-center gap-3 rounded-full pl-5 pr-1.5 py-1.5 text-[13px] font-semibold tracking-[-0.01em] glass-bubble">
+                      <button className="group inline-flex items-center gap-3 rounded-full pl-5 pr-1.5 py-1.5 font-button text-[13px] font-semibold tracking-[-0.01em] glass-bubble">
                         <span className="py-1.5">Detalle curatorial</span>
                         <span className="flex size-8 items-center justify-center rounded-full glass-bubble-icon transition-transform duration-700 ease-fluid group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
                           <ArrowUpRight weight="bold" size={12} />
@@ -92,7 +92,7 @@ function Stat({
         {label}
       </dt>
       <dd
-        className={`mt-2 font-display text-2xl tracking-tight ${
+        className={`mt-2 font-mono text-2xl tracking-tight tabular-nums ${
           accent ?? "text-foam"
         }`}
       >

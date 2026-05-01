@@ -68,7 +68,7 @@ export default function GaleriaPage() {
               {filters.map((f, i) => (
                 <button
                   key={f}
-                  className={`rounded-full px-3.5 py-1.5 text-[10px] uppercase tracking-eyebrow transition-colors duration-500 ${
+                  className={`rounded-full px-3.5 py-1.5 font-button text-[10px] uppercase tracking-eyebrow transition-colors duration-500 ${
                     i === 0
                       ? "glass-bubble text-foam"
                       : "border border-foam/15 text-foam/70 hover:border-foam/30 hover:text-foam"
@@ -189,7 +189,7 @@ export default function GaleriaPage() {
                   <p className="text-[12px] font-medium uppercase tracking-eyebrow text-foam/90">
                     {s.label}
                   </p>
-                  <p className="mt-4 font-display text-3xl tracking-tight md:text-5xl">
+                  <p className="mt-4 font-mono text-3xl tracking-tight md:text-5xl tabular-nums">
                     {s.value}
                     <span className="block text-[18px] text-foam/55 font-sans tracking-normal mt-1">
                       {s.suffix.trim()}

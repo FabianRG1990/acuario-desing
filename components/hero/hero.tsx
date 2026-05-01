@@ -66,7 +66,7 @@ export function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-4">
               <Link
                 href="/exhibiciones"
-                className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
+                className="group inline-flex items-center gap-3 rounded-full pl-6 pr-1.5 py-1.5 font-button text-[14px] font-semibold tracking-[-0.01em] glass-bubble"
               >
                 <span className="py-1.5">Recorrer exhibiciones</span>
                 <span className="flex size-9 items-center justify-center rounded-full glass-bubble-icon transition-transform duration-700 ease-fluid group-hover:translate-x-[2px] group-hover:-translate-y-[2px]">
@@ -85,7 +85,7 @@ export function Hero() {
                   </p>
                   <span className="size-2 animate-pulse rounded-full bg-bioluminescent shadow-[0_0_12px_2px_rgba(127,227,214,0.6)]" />
                 </div>
-                <p className="mt-4 font-display text-3xl tracking-tight text-foam">
+                <p className="mt-4 font-mono text-3xl tracking-tight text-foam tabular-nums">
                   19:30
                 </p>
                 <p className="mt-1 text-foam/65">
@@ -117,7 +117,7 @@ function Stat({ value, label }: { value: string; label: string }) {
       <p className="text-[11px] uppercase tracking-eyebrow text-foam/45">
         {label}
       </p>
-      <p className="mt-1 font-display text-xl tracking-tight text-foam">
+      <p className="mt-1 font-mono text-xl tracking-tight text-foam tabular-nums">
         {value}
       </p>
     </div>
